@@ -39,4 +39,7 @@ class NewVisitorTest(unittest.TestCase):
 # She visits that URL - her to-do list is still there.
 
 if __name__ == '__main__':
-    unittest.main()
+    # Regular start for the unittests
+    # unittest.main()
+    # Silence warnings
+    unittest.main(warnings='ignore')
