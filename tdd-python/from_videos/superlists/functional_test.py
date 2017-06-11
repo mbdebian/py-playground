@@ -1,12 +1,23 @@
+import unittest
 from selenium import webdriver
 
-# Edith has heard about a cool new to-do list app.
-# She goes to its homepage
-browser = webdriver.Chrome()
-browser.get('http://localhost:8000')
+class NewVisitorTest(unittest.TestCase):
 
-# She notices the page title and header mention to-do lists
-assert 'To-Do' in browser.title
+    def setUp(self):
+        # This is run before each test
+        self.browser = webdriver.Chrome()
+
+    def tearDown(self):
+        # This is run after each test, no matter what happens to the test
+        self.browser.quit()
+
+    def test_starting_a_new_todo_list(self):
+        # Edith has heard about a cool new to-do list app.
+        # She goes to its homepage
+        self.browser.get('http://localhost:8000')
+
+        # She notices the page title and header mention to-do lists
+        self.assertIn('To-Do', self.browser.title)
 
 # She is invited to enter a to-do item straight away
 
@@ -27,5 +38,5 @@ assert 'To-Do' in browser.title
 
 # She visits that URL - her to-do list is still there.
 
-# Satisfied, she goes back to sleep
-browser.quit()
+if __name__ == '__main__':
+    unittest.main()
