@@ -13,3 +13,4 @@ class HomePageTet(TestCase):
         self.assertTrue(response.content.startswith(b'<html>'))
         self.assertIn(b'<title>To-Do Lists </title>', response.content)
         self.assertTrue(response.content.endswith(b'</html>'))
+        
