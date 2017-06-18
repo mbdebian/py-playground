@@ -23,5 +23,5 @@ class HomePageTet(TestCase):
         request.method = 'POST'
         request.POST['item_text'] = 'A new item'
         response = home_page(request)
-        expected_content = render_to_string('home.html', request=request)
-        self.assertEqual(response.content.decode(), expected_content)
+        self.assertIn('A new item', response.content.decode())
+        
