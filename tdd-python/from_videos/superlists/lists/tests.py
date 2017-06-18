@@ -17,3 +17,11 @@ class HomePageTet(TestCase):
         print(response.content.decode())
         #self.assertEqual(response.content.decode(), expected_content)
         print("This test fails due to a change in Django API that I still have to figure out")
+
+    def test_home_page_can_remember_post_request(self):
+        request = HttpRequest()
+        request.method = 'POST'
+        request.POST['item_text'] = 'A new item'
+        response = home_page(request)
+        expected_content = render_to_string('home.html', request=request)
+        self.assertEqual(response.content.decode(), expected_content)
