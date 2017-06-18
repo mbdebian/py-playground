@@ -7,6 +7,7 @@ class NewVisitorTest(unittest.TestCase):
     def setUp(self):
         # This is run before each test
         self.browser = webdriver.Chrome()
+        self.browser.implicitly_wait(3)
 
     def tearDown(self):
         # This is run after each test, no matter what happens to the test
