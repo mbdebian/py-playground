@@ -9,7 +9,7 @@ from lists.views import home_page
 def remove_csrf(html_code):
     """ In this version of Django we can't predict the csrf_token, so we need to
     remove it from the response """
-    csrf_regex = r'&lt;input[^&gt;]+csrfmiddlewaretoken[^&gt;]+&gt;'
+    csrf_regex = r'<input[^>]+csrfmiddlewaretoken[^>]+>'
     return re.sub(csrf_regex, '', html_code)
 
 # Create your tests here.
