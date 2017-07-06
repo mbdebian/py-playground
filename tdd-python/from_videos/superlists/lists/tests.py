@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 from django.test import TestCase
 import re
 
+from lists.models import Item
 from lists.views import home_page
 
 
