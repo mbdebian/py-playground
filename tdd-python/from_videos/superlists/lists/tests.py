@@ -52,6 +52,6 @@ class ItemModelTest(TestCase):
 
         # Retrieve them from the database
         first_item_from_db = Item.objects.all()[0]
-        self.assertEqual(first_item_from_db, first_item.text)
+        self.assertEqual(first_item_from_db.text, first_item.text)
         second_item_from_db = Item.objects.all()[1]
-        self.assertEqual(second_item_from_db, second_item.text)
+        self.assertEqual(second_item_from_db.text, second_item.text)
