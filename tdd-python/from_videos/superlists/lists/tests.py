@@ -36,6 +36,9 @@ class HomePageTet(TestCase):
         # response = home_page(request)
         # self.assertIn('A new item', response.content.decode())
 
+    def test_home_page_can_save_post_request_to_data(self):
+        pass
+
 
 class ItemModelTest(TestCase):
     def test_saving_and_retrieving_items_to_the_database(self):
