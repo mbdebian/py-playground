@@ -36,11 +36,8 @@ class HomePageTet(TestCase):
         # response = home_page(request)
         # self.assertIn('A new item', response.content.decode())
 
-from lists.models import Item
-
 
 class ItemModelTest(TestCase):
-
     def test_saving_and_retrieving_items_to_the_database(self):
         # Create items and save them to the database
         first_item = Item()
