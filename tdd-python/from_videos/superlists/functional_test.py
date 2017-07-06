@@ -13,6 +13,10 @@ class NewVisitorTest(unittest.TestCase):
         # This is run after each test, no matter what happens to the test
         self.browser.quit()
 
+    def check_for_row_in_list_table(self, expected_row):
+        # TODO
+        pass
+    
     def test_starting_a_new_todo_list(self):
         # Edith has heard about a cool new to-do list app.
         # She goes to its homepage
