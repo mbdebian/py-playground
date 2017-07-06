@@ -37,4 +37,6 @@ class HomePageTet(TestCase):
 
 
 class ItemModelTest(TestCase):
-    pass
+
+    def test_saving_and_retrieving_items_to_the_database(self):
+        pass
