@@ -35,6 +35,7 @@ class HomePageTet(TestCase):
         # response = home_page(request)
         # self.assertIn('A new item', response.content.decode())
 
+from lists.models import Item
 
 class ItemModelTest(TestCase):
 
