@@ -37,7 +37,16 @@ class HomePageTet(TestCase):
         # self.assertIn('A new item', response.content.decode())
 
     def test_home_page_can_save_post_request_to_data(self):
-        pass
+        request = HttpRequest()
+        request.method = 'POST'
+        request.POST['item_text'] = 'A new item'
+
+        response = home_page(request)
+
+        self.assertIn('A new item', response.content.decode())
+
+        expected_content = render_to_string('home.html', {'new_item_text': 'A new Item'})
+        self.assertEqual(response.content.decode(), expected_content)
 
 
 class ItemModelTest(TestCase):
