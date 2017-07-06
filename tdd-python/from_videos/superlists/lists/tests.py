@@ -46,7 +46,7 @@ class HomePageTet(TestCase):
         self.assertIn('A new item', response.content.decode())
 
         expected_content = render_to_string('home.html', {'new_item_text': 'A new Item'})
-        self.assertEqual(response.content.decode(), expected_content)
+        self.assertEqual(remove_csrf(response.content.decode()), remove_csrf(expected_content))
 
 
 class ItemModelTest(TestCase):
