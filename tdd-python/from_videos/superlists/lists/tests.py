@@ -40,4 +40,17 @@ from lists.models import Item
 class ItemModelTest(TestCase):
 
     def test_saving_and_retrieving_items_to_the_database(self):
-        pass
+        # Create items and save them to the database
+        first_item = Item()
+        first_item.text = 'Item the first'
+        first_item.save()
+
+        second_item = Item()
+        second_item.text = 'Item the second'
+        second_item.save()
+
+        # Retrieve them from the database
+        first_item_from_db = Item.objects.all()[0]
+        self.assertEqual(first_item_from_db, first_item.text)
+        second_item_from_db = Item.objects.all()[1]
+        self.assertEqual(second_item_from_db, second_item.text)
