@@ -43,6 +43,9 @@ class HomePageTet(TestCase):
 
         response = home_page(request)
 
+        item_from_db = Item.objects.all()[0]
+        self.assertEqual(item_from_db.text, 'A new item')
+
         self.assertIn('A new item', response.content.decode())
 
         expected_content = render_to_string('home.html', {'new_item_text': 'A new item'})
