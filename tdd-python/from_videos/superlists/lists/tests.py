@@ -56,10 +56,8 @@ class HomePageTet(TestCase):
         item_from_db = Item.objects.all()[0]
         self.assertEqual(item_from_db.text, 'A new item')
 
-        self.assertIn('A new item', response.content.decode())
-
-        expected_content = render_to_string('home.html', {'new_item_text': 'A new item'})
-        self.assertEqual(remove_csrf(response.content.decode()), remove_csrf(expected_content))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response['Location'], '/')
 
 
 class ItemModelTest(TestCase):
