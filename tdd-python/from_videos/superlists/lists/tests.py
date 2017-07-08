@@ -37,8 +37,8 @@ class HomePageTet(TestCase):
         # self.assertIn('A new item', response.content.decode())
 
     def test_home_page_shows_items_in_database(self):
-        Item.objects.create('Item 1')
-        Item.objects.create('Item 2')
+        Item.objects.create(text='Item 1')
+        Item.objects.create(text='Item 2')
 
         request = HttpRequest()
         response = home_page(request)
