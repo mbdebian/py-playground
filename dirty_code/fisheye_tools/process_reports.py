@@ -67,6 +67,7 @@ def main():
                     last_seen_date = current_entry_date
                     last_seen_date_commit_comment = entry[CSV_COLUMN_NUMBER_COMMIT_COMMENT]
                     last_seen_date_commit_set.add(entry[CSV_COLUMN_NUMBER_COMMIT_ID])
+                    # In this case, the author is the same for all the listing
 
 if __name__ == '__main__':
     main()
