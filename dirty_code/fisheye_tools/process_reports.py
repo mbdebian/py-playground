@@ -46,7 +46,12 @@ def app_bootstrap():
 
 
 class ResultObject:
-    pass
+    def __init__(self):
+        self.date = ""
+        self.author = ""
+        self.no_commits = ""
+        self.repo_name = ""
+        self.commit_details = ""
 
 
 def main():
