@@ -36,7 +36,7 @@ def app_bootstrap():
 
 
 def main():
-    pass
+    app_bootstrap()
 
 
 if __name__ == '__main__':
