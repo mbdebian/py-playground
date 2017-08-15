@@ -58,8 +58,8 @@ def main():
         last_seen_date_commit_comment = None
         for i, entry in enumerate(csvreader):
             if i == 0:
-                # Header
-                grouped_result.append(entry)
+                # Result differs from input, so we just skip the header
+                pass
             else:
                 # Change the date format to stop at 'day' resolution
                 current_entry_date = entry[INPUT_CSV_COLUMN_NUMBER_DATE].split(' ')[0]
