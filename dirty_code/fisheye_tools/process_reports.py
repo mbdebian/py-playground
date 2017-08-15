@@ -13,8 +13,14 @@ Sample code for processing fisheye reports
 
 import argparse
 
+
 def get_cmdl():
     cmdl_version = '2017.08.15'
+    parser = argparse.ArgumentParser()
+    parser.add_argument('input_file',
+                        help='Input file in CSV format with columns '
+                             '(Commit ID, Date, Author, Commit Comment, Changed Path')
+    return parser.parse_args()
 
 
 def main():
