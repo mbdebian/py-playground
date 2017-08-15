@@ -33,6 +33,7 @@ def get_cmdl():
 def app_bootstrap():
     global __logger
     global __args
+    logging.basicConfig(level=logging.DEBUG)
     __logger = logging.getLogger(__name__)
     __args = get_cmdl()
 
