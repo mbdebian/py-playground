@@ -53,6 +53,9 @@ def main():
     grouped_result = []
     with open(__args.input_file) as f:
         csvreader = csv.reader(f, delimiter=',', quotechar='"')
+        last_seen_date = None
+        last_seen_date_commit_list = []
+        last_seen_date_commit_comment = None
         for i, entry in enumerate(csvreader):
             if i == 0:
                 # Header
