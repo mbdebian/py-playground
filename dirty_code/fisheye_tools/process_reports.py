@@ -82,6 +82,7 @@ def main():
     with open(__args.input_file) as f:
         with open(output_file, 'w') as wf:
             csvreader = csv.reader(f, delimiter=',', quotechar='"')
+            csvwriter = csv.writer(wf, delimiter=';', quotechar='"')
             last_seen_date = None
             last_seen_date_commit_set = set()
             last_seen_date_commit_comment = None
