@@ -13,8 +13,9 @@
 Sample code for processing fisheye reports
 """
 
-import argparse
+import csv
 import logging
+import argparse
 
 # Globals
 __logger = None
