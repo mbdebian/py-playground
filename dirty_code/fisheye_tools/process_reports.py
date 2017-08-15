@@ -126,7 +126,10 @@ def main():
                             entry_path = entry[INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH]
                             result_entry.repo_name = entry_path[:entry_path.find('/')]
                             # Produce the URLs for the commit details
-                            # TODO
+                            result_entry.commit_details = ",".join(
+                                [get_fisheye_url_for_commit_details(commit_id)
+                                 for commit_id
+                                 in last_seen_date_commit_set])
 
 
 if __name__ == '__main__':
