@@ -190,7 +190,7 @@ def main():
                                  in last_seen_date_commit_set])
                             # Write entry to output report
                             csvwriter.writerow(result_entry.get_csv_entry())
-                            # Flush the structures that keep track of grouping
+                            # Fill in the tracking information for the current entry
                             last_seen_date = current_entry_date
                             last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
                             last_seen_date_commit_set = {entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_ID]}
