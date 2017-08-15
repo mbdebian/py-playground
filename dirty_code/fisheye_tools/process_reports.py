@@ -37,6 +37,7 @@ def app_bootstrap():
 
 def main():
     app_bootstrap()
+    __logger.info("Input file '{}'".format(__args.input_file))
 
 
 if __name__ == '__main__':
