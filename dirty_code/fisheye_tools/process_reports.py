@@ -45,6 +45,9 @@ def app_bootstrap():
     __logger = logging.getLogger(__name__)
     __args = get_cmdl()
 
+class ResultObject:
+    pass
+
 
 def main():
     app_bootstrap()
