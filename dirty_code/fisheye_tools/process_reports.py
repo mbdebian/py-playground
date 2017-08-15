@@ -27,6 +27,8 @@ def get_cmdl():
                              '(Commit ID, Date, Author, Commit Comment, Changed Path')
     return parser.parse_args()
 
+def app_bootstrap():
+    pass
 
 def main():
     pass
