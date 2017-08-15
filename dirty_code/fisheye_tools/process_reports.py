@@ -11,10 +11,10 @@
 Sample code for processing fisheye reports
 """
 
+import argparse
 
 def get_cmdl():
     cmdl_version = '2017.08.15'
-    
 
 
 def main():
