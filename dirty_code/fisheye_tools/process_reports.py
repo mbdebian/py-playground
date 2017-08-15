@@ -36,6 +36,16 @@ def get_fisheye_url_for_commit_details(commit_id):
     return "{}{}".format(FISHEYE_URL_BASELINE_FOR_COMMIT_ID_DETAILS,
                          commit_id)
 
+def clean_multiline_commit_comments(input_file, output_file):
+    """
+    This method cleans developers bad practices of using multiline commit comments, and fisheye bad reporting on not
+    collapsing or removing their new line characters upon CSV exporting"
+    :param input_file: input file to clean
+    :param output_file: output clean file to produce
+    :return: no returned value
+    """
+    pass
+
 
 def get_cmdl():
     cmdl_version = '2017.08.15'
