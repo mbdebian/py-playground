@@ -13,7 +13,8 @@ Sample code for processing fisheye reports
 
 
 def get_cmdl():
-    pass
+    cmdl_version = '2017.08.15'
+    
 
 
 def main():
