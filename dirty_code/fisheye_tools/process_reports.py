@@ -19,10 +19,10 @@ import argparse
 
 
 # Constants
-CSV_COLUMN_NUMBER_COMMIT_ID = 0
-CSV_COLUMN_NUMBER_DATE = 1
-CSV_COLUMN_NUMBER_COMMIT_COMMENT = 2
-CSV_COLUMN_NUMBER_CHANGED_PATH = 3
+INPUT_CSV_COLUMN_NUMBER_COMMIT_ID = 0
+INPUT_CSV_COLUMN_NUMBER_DATE = 1
+INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT = 2
+INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH = 3
 
 # Globals
 __logger = None
@@ -62,20 +62,20 @@ def main():
                 grouped_result.append(entry)
             else:
                 # Change the date format to stop at 'day' resolution
-                current_entry_date = entry[CSV_COLUMN_NUMBER_DATE].split(' ')[0]
+                current_entry_date = entry[INPUT_CSV_COLUMN_NUMBER_DATE].split(' ')[0]
                 if not last_seen_date:
                     last_seen_date = current_entry_date
-                    last_seen_date_commit_comment = entry[CSV_COLUMN_NUMBER_COMMIT_COMMENT]
-                    last_seen_date_commit_set.add(entry[CSV_COLUMN_NUMBER_COMMIT_ID])
+                    last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
+                    last_seen_date_commit_set.add(entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_ID])
                     # In this case, the author is the same for all the listing
                 else:
                     if current_entry_date == last_seen_date:
                         # Group entry
                         # Add the commit ID
-                        last_seen_date_commit_set.add(entry[CSV_COLUMN_NUMBER_COMMIT_ID])
+                        last_seen_date_commit_set.add(entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_ID])
                         # If our current commit comment is empty and this entry has a useful one, replace it
                         if len(last_seen_date_commit_comment) == 0:
-                            last_seen_date_commit_comment = entry[CSV_COLUMN_NUMBER_COMMIT_COMMENT]
+                            last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
                     else:
                         # Start another entry group
                         pass
