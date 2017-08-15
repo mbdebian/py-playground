@@ -130,6 +130,8 @@ def main():
                                 [get_fisheye_url_for_commit_details(commit_id)
                                  for commit_id
                                  in last_seen_date_commit_set])
+                            # Write entry to output report
+                            csvwriter.writerow(result_entry.get_csv_entry())
 
 
 if __name__ == '__main__':
