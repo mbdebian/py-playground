@@ -13,6 +13,8 @@
 Sample code for processing fisheye reports
 """
 
+import io
+import re
 import csv
 import logging
 import argparse
@@ -62,9 +64,25 @@ def clean_multiline_commit_comments(input_file, output_file):
                     else:
                         wf.write(input_line.strip() + " ")
 
-def clean_even_more_rubbish_commit_comments(input_file, output_file):
-    pass
 
+def clean_even_more_rubbish_commit_comments(input_file, output_file):
+    commit_entry_re = r"^\"\d+\","
+    with open(input_file) as f:
+        with open(output_file, 'w') as wf:
+            buffer = ""
+            for i, input_line in enumerate(f):
+                if i == 0:
+                    wf.write(input_line)
+                    continue
+                if re.match(commit_entry_re, input_line):
+                    # Flush the buffer to file and put this on it
+                    wf.write(buffer + "\n")
+                    buffer = input_line.strip()
+                else:
+                    # Append to the buffer
+                    buffer = buffer + " " + input_line.strip()
+            # Flush the last buffer content
+            wf.write(buffer + "\n")
 
 def get_cmdl():
     cmdl_version = '2017.08.15'
@@ -119,7 +137,7 @@ def main():
     input_file_name = __args.input_file[:__args.input_file.rfind('.')]
     cleaned_file = input_file_name + "-cleaned.csv"
     output_file = input_file_name + "-date_grouped_report.csv"
-    clean_multiline_commit_comments(__args.input_file, cleaned_file)
+    clean_even_more_rubbish_commit_comments(__args.input_file, cleaned_file)
     with open(cleaned_file) as f:
         with open(output_file, 'w') as wf:
             csvreader = csv.reader(f, delimiter=',', quotechar='"')
