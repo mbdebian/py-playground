@@ -53,6 +53,15 @@ class ResultObject:
         self.repo_name = ""
         self.commit_details = ""
 
+    def get_csv_header(self):
+        return [
+            'Date',
+            'Author',
+            'Number of Commits',
+            'Repository',
+            'Commit Details'
+        ]
+
 
 def main():
     app_bootstrap()
