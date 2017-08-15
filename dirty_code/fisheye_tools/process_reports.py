@@ -32,6 +32,7 @@ def app_bootstrap():
     global __logger
     global __args
     __logger = logging.getLogger(__name__)
+    __args = get_cmdl()
 
 
 def main():
