@@ -150,12 +150,10 @@ def main():
             last_seen_date_commit_set = set()
             last_seen_date_commit_comment = None
             for i, entry in enumerate(csvreader):
-                if i == 0:
+                if i != 0:
                     # Result differs from input, so we just skip the header
-                    pass
-                else:
                     # Change the date format to stop at 'day' resolution
-                    __logger.debug("[Entry {:03}] '{}'".format(i, str(entry)))
+                    #__logger.debug("[Entry {:03}] '{}'".format(i, str(entry)))
                     current_entry_date = entry[INPUT_CSV_COLUMN_NUMBER_DATE].split(' ')[0]
                     if not last_seen_date:
                         last_seen_date = current_entry_date
