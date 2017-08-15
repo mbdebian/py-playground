@@ -111,7 +111,8 @@ def main():
                                 last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
                         else:
                             # Start another entry group
-                            pass
+                            result_entry = ResultObject()
+                            result_entry.date = last_seen_date
 
 
 if __name__ == '__main__':
