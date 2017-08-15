@@ -72,7 +72,7 @@ def clean_even_more_rubbish_commit_comments(input_file, output_file):
             buffer = ""
             for i, input_line in enumerate(f):
                 if i == 0:
-                    wf.write(input_line)
+                    buffer = input_line.strip()
                     continue
                 if re.match(commit_entry_re, input_line):
                     # Flush the buffer to file and put this on it
@@ -154,7 +154,7 @@ def main():
                     pass
                 else:
                     # Change the date format to stop at 'day' resolution
-                    __logger.debug("Entry {} '{}'".format(i, str(entry)))
+                    __logger.debug("[Entry {:03}] '{}'".format(i, str(entry)))
                     current_entry_date = entry[INPUT_CSV_COLUMN_NUMBER_DATE].split(' ')[0]
                     if not last_seen_date:
                         last_seen_date = current_entry_date
