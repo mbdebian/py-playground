@@ -114,6 +114,7 @@ def main():
                             result_entry = ResultObject()
                             result_entry.date = last_seen_date
                             result_entry.author = entry[INPUT_CSV_COLUMN_NUMBER_AUTHOR]
+                            result_entry.no_commits = len(last_seen_date_commit_set)
 
 
 if __name__ == '__main__':
