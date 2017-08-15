@@ -27,6 +27,9 @@ INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT = 3
 INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH = 4
 # FishEye URLs
 FISHEYE_URL_BASELINE_FOR_COMMIT_ID_DETAILS = 'http://fisheye.ebi.ac.uk/changelog/pride-repo?cs='
+# CSV
+OUTPUT_CSV_DELIMITER = ','
+OUTPUT_CSV_INTERNAL_DELIMITER = ';'
 
 # Globals
 __logger = None
@@ -146,7 +149,7 @@ def main():
     with open(cleaned_file) as f:
         with open(output_file, 'w') as wf:
             csvreader = csv.reader(f, delimiter=',', quotechar='"')
-            csvwriter = csv.writer(wf, delimiter=';', quotechar='"')
+            csvwriter = csv.writer(wf, delimiter=OUTPUT_CSV_DELIMITER, quotechar='"')
             # Write output report header
             csvwriter.writerow(ResultObject.get_csv_header())
             last_seen_date = None
