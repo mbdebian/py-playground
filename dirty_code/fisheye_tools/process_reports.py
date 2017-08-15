@@ -52,7 +52,7 @@ def main():
     # We assume the data is already sorted by date
     with open(__args.input_file) as f:
         input_data = csv.reader(f, delimiter=',', quotechar='"')
-        
+        __logger.info("{} entries read".format(len(input_data)))
 
 if __name__ == '__main__':
     main()
