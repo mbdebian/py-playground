@@ -17,7 +17,6 @@ import csv
 import logging
 import argparse
 
-
 # Constants
 INPUT_CSV_COLUMN_NUMBER_COMMIT_ID = 0
 INPUT_CSV_COLUMN_NUMBER_DATE = 1
@@ -44,6 +43,7 @@ def app_bootstrap():
     logging.basicConfig(level=logging.DEBUG)
     __logger = logging.getLogger(__name__)
     __args = get_cmdl()
+
 
 class ResultObject:
     pass
@@ -82,6 +82,7 @@ def main():
                     else:
                         # Start another entry group
                         pass
+
 
 if __name__ == '__main__':
     main()
