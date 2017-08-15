@@ -54,7 +54,7 @@ def main():
     with open(__args.input_file) as f:
         csvreader = csv.reader(f, delimiter=',', quotechar='"')
         last_seen_date = None
-        last_seen_date_commit_list = []
+        last_seen_date_commit_list = set()
         last_seen_date_commit_comment = None
         for i, entry in enumerate(csvreader):
             if i == 0:
@@ -63,6 +63,8 @@ def main():
             else:
                 # Change the date format to stop at 'day' resolution
                 current_entry_date = entry[CSV_COLUMN_NUMBER_DATE].split(' ')[0]
+                if not last_seen_date:
+                    last_seen_date = current_entry_date
 
 if __name__ == '__main__':
     main()
