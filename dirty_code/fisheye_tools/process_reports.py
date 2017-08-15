@@ -20,6 +20,7 @@ import argparse
 
 # Constants
 CSV_COLUMN_NUMBER_COMMIT_ID = 0
+CSV_COLUMN_NUMBER_DATE = 1
 
 # Globals
 __logger = None
