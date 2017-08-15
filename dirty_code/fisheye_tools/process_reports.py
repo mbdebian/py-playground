@@ -29,7 +29,8 @@ def get_cmdl():
 
 
 def app_bootstrap():
-    pass
+    global __logger
+    global __args
 
 
 def main():
