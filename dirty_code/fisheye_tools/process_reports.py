@@ -17,6 +17,10 @@ import csv
 import logging
 import argparse
 
+
+# Constants
+CSV_COLUMN_NUMBER_COMMIT_ID = 0
+
 # Globals
 __logger = None
 __args = None
@@ -42,6 +46,7 @@ def app_bootstrap():
 def main():
     app_bootstrap()
     __logger.info("Input file '{}'".format(__args.input_file))
+    # We assume the data is already sorted by date
 
 
 if __name__ == '__main__':
