@@ -76,7 +76,8 @@ def clean_even_more_rubbish_commit_comments(input_file, output_file):
                     continue
                 if re.match(commit_entry_re, input_line):
                     # Flush the buffer to file and put this on it
-                    wf.write(buffer + "\n")
+                    # The removal of double quotes is just for a particular use case on a report I have to prepare
+                    wf.write(buffer.replace('""', '') + "\n")
                     buffer = input_line.strip()
                 else:
                     # Append to the buffer
