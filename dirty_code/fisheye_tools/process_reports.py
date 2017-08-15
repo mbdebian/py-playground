@@ -149,6 +149,7 @@ def main():
             last_seen_date = None
             last_seen_date_commit_set = set()
             last_seen_date_commit_comment = None
+            last_seen_date_author = None
             for i, entry in enumerate(csvreader):
                 if i != 0:
                     # Result differs from input, so we just skip the header
