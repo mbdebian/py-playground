@@ -14,6 +14,8 @@ Sample code for processing fisheye reports
 import argparse
 import logging
 
+# Globals
+
 
 
 def get_cmdl():
