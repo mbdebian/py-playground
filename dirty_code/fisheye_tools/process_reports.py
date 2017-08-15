@@ -62,6 +62,9 @@ def clean_multiline_commit_comments(input_file, output_file):
                     else:
                         wf.write(input_line.strip() + " ")
 
+def clean_even_more_rubbish_commit_comments(input_file, output_file):
+    pass
+
 
 def get_cmdl():
     cmdl_version = '2017.08.15'
