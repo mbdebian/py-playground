@@ -150,6 +150,7 @@ def main():
             last_seen_date_commit_set = set()
             last_seen_date_commit_comment = None
             last_seen_date_author = None
+            last_seen_date_repo_names = set()
             for i, entry in enumerate(csvreader):
                 if i != 0:
                     # Result differs from input, so we just skip the header
@@ -160,12 +161,18 @@ def main():
                         last_seen_date = current_entry_date
                         last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
                         last_seen_date_commit_set.add(entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_ID])
+                        last_seen_date_author = entry[INPUT_CSV_COLUMN_NUMBER_AUTHOR]
+                        entry_path = entry[INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH]
+                        last_seen_date_repo_names.add(entry_path[:entry_path.find('/')])
                         # In this case, the author is the same for all the listing
                     else:
                         if current_entry_date == last_seen_date:
                             # Group entry
                             # Add the commit ID
                             last_seen_date_commit_set.add(entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_ID])
+                            # Add the repo name, because multiple repos could have been committed on the same day
+                            entry_path = entry[INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH]
+                            last_seen_date_repo_names.add(entry_path[:entry_path.find('/')])
                             # If our current commit comment is empty and this entry has a useful one, replace it
                             if len(last_seen_date_commit_comment) == 0:
                                 last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
@@ -173,10 +180,9 @@ def main():
                             # Start another entry group
                             result_entry = ResultObject()
                             result_entry.date = last_seen_date
-                            result_entry.author = entry[INPUT_CSV_COLUMN_NUMBER_AUTHOR]
+                            result_entry.author = last_seen_date_author
                             result_entry.no_commits = len(last_seen_date_commit_set)
-                            entry_path = entry[INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH]
-                            result_entry.repo_name = entry_path[:entry_path.find('/')]
+                            result_entry.repo_name = ",".join([repo_name for repo_name in last_seen_date_repo_names])
                             # Produce the URLs for the commit details
                             result_entry.commit_details = ",".join(
                                 [get_fisheye_url_for_commit_details(commit_id)
@@ -185,17 +191,19 @@ def main():
                             # Write entry to output report
                             csvwriter.writerow(result_entry.get_csv_entry())
                             # Flush the structures that keep track of grouping
-                            last_seen_date = None
-                            last_seen_date_commit_set = set()
-                            last_seen_date_commit_comment = None
+                            last_seen_date = current_entry_date
+                            last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
+                            last_seen_date_commit_set = {entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_ID]}
+                            last_seen_date_author = entry[INPUT_CSV_COLUMN_NUMBER_AUTHOR]
+                            entry_path = entry[INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH]
+                            last_seen_date_repo_names = {entry_path[:entry_path.find('/')]}
             # Flush possible last entry
             if last_seen_date:
                 result_entry = ResultObject()
                 result_entry.date = last_seen_date
-                result_entry.author = entry[INPUT_CSV_COLUMN_NUMBER_AUTHOR]
+                result_entry.author = last_seen_date_author
                 result_entry.no_commits = len(last_seen_date_commit_set)
-                entry_path = entry[INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH]
-                result_entry.repo_name = entry_path[:entry_path.find('/')]
+                result_entry.repo_name = ",".join([repo_name for repo_name in last_seen_date_repo_names])
                 # Produce the URLs for the commit details
                 result_entry.commit_details = ",".join(
                     [get_fisheye_url_for_commit_details(commit_id)
