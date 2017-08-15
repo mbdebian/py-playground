@@ -187,6 +187,21 @@ def main():
                             last_seen_date = None
                             last_seen_date_commit_set = set()
                             last_seen_date_commit_comment = None
+            # Flush possible last entry
+            if last_seen_date:
+                result_entry = ResultObject()
+                result_entry.date = last_seen_date
+                result_entry.author = entry[INPUT_CSV_COLUMN_NUMBER_AUTHOR]
+                result_entry.no_commits = len(last_seen_date_commit_set)
+                entry_path = entry[INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH]
+                result_entry.repo_name = entry_path[:entry_path.find('/')]
+                # Produce the URLs for the commit details
+                result_entry.commit_details = ",".join(
+                    [get_fisheye_url_for_commit_details(commit_id)
+                     for commit_id
+                     in last_seen_date_commit_set])
+                # Write entry to output report
+                csvwriter.writerow(result_entry.get_csv_entry())
 
 
 if __name__ == '__main__':
