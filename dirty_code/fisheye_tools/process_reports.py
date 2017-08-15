@@ -184,7 +184,7 @@ def main():
                             result_entry.no_commits = len(last_seen_date_commit_set)
                             result_entry.repo_name = ",".join([repo_name for repo_name in last_seen_date_repo_names])
                             # Produce the URLs for the commit details
-                            result_entry.commit_details = ",".join(
+                            result_entry.commit_details = ", ".join(
                                 [get_fisheye_url_for_commit_details(commit_id)
                                  for commit_id
                                  in last_seen_date_commit_set])
@@ -205,7 +205,7 @@ def main():
                 result_entry.no_commits = len(last_seen_date_commit_set)
                 result_entry.repo_name = ",".join([repo_name for repo_name in last_seen_date_repo_names])
                 # Produce the URLs for the commit details
-                result_entry.commit_details = ",".join(
+                result_entry.commit_details = ", ".join(
                     [get_fisheye_url_for_commit_details(commit_id)
                      for commit_id
                      in last_seen_date_commit_set])
