@@ -30,6 +30,7 @@ FISHEYE_URL_BASELINE_FOR_COMMIT_ID_DETAILS = 'http://fisheye.ebi.ac.uk/changelog
 # CSV
 OUTPUT_CSV_DELIMITER = ','
 OUTPUT_CSV_INTERNAL_DELIMITER = ';'
+OUTPUT_CSV_INTERNAL_DELIMITER_WITH_SPACE = OUTPUT_CSV_INTERNAL_DELIMITER + ' '
 
 # Globals
 __logger = None
@@ -188,9 +189,9 @@ def main():
                             result_entry.date = last_seen_date
                             result_entry.author = last_seen_date_author
                             result_entry.no_commits = len(last_seen_date_commit_set)
-                            result_entry.repo_name = ",".join([repo_name for repo_name in last_seen_date_repo_names])
+                            result_entry.repo_name = OUTPUT_CSV_INTERNAL_DELIMITER.join([repo_name for repo_name in last_seen_date_repo_names])
                             # Produce the URLs for the commit details
-                            result_entry.commit_details = ", ".join(
+                            result_entry.commit_details = OUTPUT_CSV_INTERNAL_DELIMITER_WITH_SPACE.join(
                                 [get_fisheye_url_for_commit_details(commit_id)
                                  for commit_id
                                  in last_seen_date_commit_set])
@@ -209,9 +210,9 @@ def main():
                 result_entry.date = last_seen_date
                 result_entry.author = last_seen_date_author
                 result_entry.no_commits = len(last_seen_date_commit_set)
-                result_entry.repo_name = ",".join([repo_name for repo_name in last_seen_date_repo_names])
+                result_entry.repo_name = OUTPUT_CSV_INTERNAL_DELIMITER.join([repo_name for repo_name in last_seen_date_repo_names])
                 # Produce the URLs for the commit details
-                result_entry.commit_details = ", ".join(
+                result_entry.commit_details = OUTPUT_CSV_INTERNAL_DELIMITER_WITH_SPACE.join(
                     [get_fisheye_url_for_commit_details(commit_id)
                      for commit_id
                      in last_seen_date_commit_set])
