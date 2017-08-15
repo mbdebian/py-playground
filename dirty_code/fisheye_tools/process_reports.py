@@ -122,10 +122,13 @@ class ResultObject:
         ]
 
     def get_csv_entry(self):
+        qualifier = "commit"
+        if int(self.no_commits) > 1:
+            qualifier = "commits"
         return [
             self.date,
             self.author,
-            self.no_commits,
+            "{} {}".format(self.no_commits, qualifier),
             self.repo_name,
             self.commit_details
         ]
