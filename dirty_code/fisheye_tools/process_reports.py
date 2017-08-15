@@ -48,7 +48,7 @@ def clean_multiline_commit_comments(input_file, output_file):
     with open(input_file) as f:
         with open(output_file, 'w') as wf:
             clean_state = True
-            for input_line in input_file:
+            for input_line in f:
                 if clean_state:
                     if input_line.endswith("\"\n"):
                         wf.write(input_line)
@@ -113,8 +113,11 @@ def main():
     __logger.info("Input file '{}'".format(__args.input_file))
     # We assume the data is already sorted by date
     grouped_result = []
-    output_file = __args.input_file[:__args.input_file.rfind('.')] + "-date_grouped_report.csv"
-    with open(__args.input_file) as f:
+    input_file_name = __args.input_file[:__args.input_file.rfind('.')]
+    cleaned_file = input_file_name + "-cleaned.csv"
+    output_file = input_file_name + "-date_grouped_report.csv"
+    clean_multiline_commit_comments(__args.input_file, cleaned_file)
+    with open(cleaned_file) as f:
         with open(output_file, 'w') as wf:
             csvreader = csv.reader(f, delimiter=',', quotechar='"')
             csvwriter = csv.writer(wf, delimiter=';', quotechar='"')
