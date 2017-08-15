@@ -113,6 +113,7 @@ def main():
                             # Start another entry group
                             result_entry = ResultObject()
                             result_entry.date = last_seen_date
+                            result_entry.author = entry[INPUT_CSV_COLUMN_NUMBER_AUTHOR]
 
 
 if __name__ == '__main__':
