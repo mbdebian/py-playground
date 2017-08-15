@@ -85,6 +85,7 @@ def clean_even_more_rubbish_commit_comments(input_file, output_file):
             # Flush the last buffer content
             wf.write(buffer + "\n")
 
+
 def get_cmdl():
     cmdl_version = '2017.08.15'
     parser = argparse.ArgumentParser()
