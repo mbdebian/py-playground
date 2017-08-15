@@ -16,6 +16,7 @@ import logging
 
 # Globals
 __logger = None
+__args = None
 
 
 def get_cmdl():
