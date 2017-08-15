@@ -80,33 +80,34 @@ def main():
     grouped_result = []
     output_file = __args.input_file[:__args.input_file.rfind('.')] + "-date_grouped_report.csv"
     with open(__args.input_file) as f:
-        csvreader = csv.reader(f, delimiter=',', quotechar='"')
-        last_seen_date = None
-        last_seen_date_commit_set = set()
-        last_seen_date_commit_comment = None
-        for i, entry in enumerate(csvreader):
-            if i == 0:
-                # Result differs from input, so we just skip the header
-                pass
-            else:
-                # Change the date format to stop at 'day' resolution
-                current_entry_date = entry[INPUT_CSV_COLUMN_NUMBER_DATE].split(' ')[0]
-                if not last_seen_date:
-                    last_seen_date = current_entry_date
-                    last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
-                    last_seen_date_commit_set.add(entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_ID])
-                    # In this case, the author is the same for all the listing
+        with open(output_file, 'w') as wf:
+            csvreader = csv.reader(f, delimiter=',', quotechar='"')
+            last_seen_date = None
+            last_seen_date_commit_set = set()
+            last_seen_date_commit_comment = None
+            for i, entry in enumerate(csvreader):
+                if i == 0:
+                    # Result differs from input, so we just skip the header
+                    pass
                 else:
-                    if current_entry_date == last_seen_date:
-                        # Group entry
-                        # Add the commit ID
+                    # Change the date format to stop at 'day' resolution
+                    current_entry_date = entry[INPUT_CSV_COLUMN_NUMBER_DATE].split(' ')[0]
+                    if not last_seen_date:
+                        last_seen_date = current_entry_date
+                        last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
                         last_seen_date_commit_set.add(entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_ID])
-                        # If our current commit comment is empty and this entry has a useful one, replace it
-                        if len(last_seen_date_commit_comment) == 0:
-                            last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
+                        # In this case, the author is the same for all the listing
                     else:
-                        # Start another entry group
-                        pass
+                        if current_entry_date == last_seen_date:
+                            # Group entry
+                            # Add the commit ID
+                            last_seen_date_commit_set.add(entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_ID])
+                            # If our current commit comment is empty and this entry has a useful one, replace it
+                            if len(last_seen_date_commit_comment) == 0:
+                                last_seen_date_commit_comment = entry[INPUT_CSV_COLUMN_NUMBER_COMMIT_COMMENT]
+                        else:
+                            # Start another entry group
+                            pass
 
 
 if __name__ == '__main__':
