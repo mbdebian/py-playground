@@ -1,4 +1,6 @@
-# 
+#!/usr/bin/env python3
+
+#
 # Author    : Manuel Bernal Llinares
 # Project   : fisheye_tools
 # Timestamp : 15-08-2017 10:24
