@@ -50,9 +50,11 @@ def main():
     app_bootstrap()
     __logger.info("Input file '{}'".format(__args.input_file))
     # We assume the data is already sorted by date
+    grouped_result = []
     with open(__args.input_file) as f:
         csvreader = csv.reader(f, delimiter=',', quotechar='"')
-        
+        for i, entry in enumerate(csvreader):
+            pass
 
 if __name__ == '__main__':
     main()
