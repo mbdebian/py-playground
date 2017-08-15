@@ -11,3 +11,10 @@
 Sample code for processing fisheye reports
 """
 
+
+def main():
+    pass
+
+
+if __name__ == '__main__':
+    main()
