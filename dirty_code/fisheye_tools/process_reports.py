@@ -65,6 +65,7 @@ def main():
                 current_entry_date = entry[CSV_COLUMN_NUMBER_DATE].split(' ')[0]
                 if not last_seen_date:
                     last_seen_date = current_entry_date
+                    last_seen_date_commit_comment = entry[CSV_COLUMN_NUMBER_COMMIT_COMMENT]
 
 if __name__ == '__main__':
     main()
