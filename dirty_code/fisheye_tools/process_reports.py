@@ -117,6 +117,8 @@ def main():
                             result_entry.no_commits = len(last_seen_date_commit_set)
                             entry_path = entry[INPUT_CSV_COLUMN_NUMBER_CHANGED_PATH]
                             result_entry.repo_name = entry_path[:entry_path.find('/')]
+                            # Produce the URLs for the commit details
+                            # TODO
 
 
 if __name__ == '__main__':
