@@ -132,6 +132,10 @@ def main():
                                  in last_seen_date_commit_set])
                             # Write entry to output report
                             csvwriter.writerow(result_entry.get_csv_entry())
+                            # Flush the structures that keep track of grouping
+                            last_seen_date = None
+                            last_seen_date_commit_set = set()
+                            last_seen_date_commit_comment = None
 
 
 if __name__ == '__main__':
