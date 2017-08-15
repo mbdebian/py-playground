@@ -63,6 +63,15 @@ class ResultObject:
             'Commit Details'
         ]
 
+    def get_csv_entry(self):
+        return [
+            self.date,
+            self.author,
+            self.no_commits,
+            self.repo_name,
+            self.commit_details
+        ]
+
 
 def main():
     app_bootstrap()
