@@ -78,6 +78,7 @@ def main():
     __logger.info("Input file '{}'".format(__args.input_file))
     # We assume the data is already sorted by date
     grouped_result = []
+    output_file = __args.input_file[:__args.input_file.rfind('.')] + "-date_grouped_report.csv"
     with open(__args.input_file) as f:
         csvreader = csv.reader(f, delimiter=',', quotechar='"')
         last_seen_date = None
