@@ -71,7 +71,11 @@ def main():
                 else:
                     if current_entry_date == last_seen_date:
                         # Group entry
-                        pass
+                        # Add the commit ID
+                        last_seen_date_commit_set.add(entry[CSV_COLUMN_NUMBER_COMMIT_ID])
+                        # If our current commit comment is empty and this entry has a useful one, replace it
+                        if len(last_seen_date_commit_comment) == 0:
+                            last_seen_date_commit_comment = entry[CSV_COLUMN_NUMBER_COMMIT_COMMENT]
                     else:
                         # Start another entry group
                         pass
