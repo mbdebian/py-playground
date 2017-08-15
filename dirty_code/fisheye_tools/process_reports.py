@@ -54,7 +54,11 @@ def main():
     with open(__args.input_file) as f:
         csvreader = csv.reader(f, delimiter=',', quotechar='"')
         for i, entry in enumerate(csvreader):
-            pass
+            if i == 0:
+                # Header
+                grouped_result.append(entry)
+            else:
+                pass
 
 if __name__ == '__main__':
     main()
