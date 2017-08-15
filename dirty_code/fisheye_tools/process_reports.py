@@ -83,6 +83,8 @@ def main():
         with open(output_file, 'w') as wf:
             csvreader = csv.reader(f, delimiter=',', quotechar='"')
             csvwriter = csv.writer(wf, delimiter=';', quotechar='"')
+            # Write output report header
+            csvwriter.writerow(ResultObject.get_csv_header())
             last_seen_date = None
             last_seen_date_commit_set = set()
             last_seen_date_commit_comment = None
