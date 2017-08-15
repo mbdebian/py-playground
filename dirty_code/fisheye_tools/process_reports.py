@@ -53,7 +53,8 @@ class ResultObject:
         self.repo_name = ""
         self.commit_details = ""
 
-    def get_csv_header(self):
+    @staticmethod
+    def get_csv_header():
         return [
             'Date',
             'Author',
