@@ -31,6 +31,12 @@ __logger = None
 __args = None
 
 
+# Helpers
+def get_fisheye_url_for_commit_details(commit_id):
+    return "{}{}".format(FISHEYE_URL_BASELINE_FOR_COMMIT_ID_DETAILS,
+                         commit_id)
+
+
 def get_cmdl():
     cmdl_version = '2017.08.15'
     parser = argparse.ArgumentParser()
