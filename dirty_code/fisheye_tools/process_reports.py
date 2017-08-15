@@ -15,7 +15,7 @@ import argparse
 import logging
 
 # Globals
-
+__logger = None
 
 
 def get_cmdl():
