@@ -12,6 +12,8 @@ Sample code for processing fisheye reports
 """
 
 import argparse
+import logging
+
 
 
 def get_cmdl():
