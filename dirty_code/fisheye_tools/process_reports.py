@@ -58,7 +58,8 @@ def main():
                 # Header
                 grouped_result.append(entry)
             else:
-                pass
+                # Change the date format to stop at 'day' resolution
+                current_entry_date = entry[CSV_COLUMN_NUMBER_DATE].split(' ')[0]
 
 if __name__ == '__main__':
     main()
