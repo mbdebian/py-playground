@@ -10,3 +10,6 @@
 """
 Properties playground
 """
+
+class PublicPropertyExample:
+    pass
