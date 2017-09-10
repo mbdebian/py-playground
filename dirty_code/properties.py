@@ -32,7 +32,7 @@ class PrivatePropertyExperiment:
         self.__mi_mensaje = mensaje
 
     def __str__(self):
-        print(self.__mi_mensaje)
+        return self.__mi_mensaje
 
 
 def main():
