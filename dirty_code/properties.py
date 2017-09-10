@@ -11,5 +11,10 @@
 Properties playground
 """
 
+
 class PublicPropertyExample:
+    pass
+
+
+class PrivatePropertyExperiment:
     pass
