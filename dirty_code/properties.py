@@ -28,6 +28,11 @@ class PublicPropertyExample:
 
 
 class PrivatePropertyExperiment:
+    """
+    This example shows that, when using property annotation, the 'propertirized' attribute must be named differently
+    than the internal attribute used behind the property getter and the property setter, otherwise, accessing
+    the attribute will recursively call the getter indefinitely
+    """
     def __init__(self, mensaje):
         self.__mi_mensaje = mensaje
 
