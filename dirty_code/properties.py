@@ -23,7 +23,7 @@ class PrivatePropertyExperiment:
 
 def main():
     ppe = PublicPropertyExample("Initial message")
-    print(ppe)
+    print(ppe.mi_mensaje)
 
 
 if __name__ == '__main__':
