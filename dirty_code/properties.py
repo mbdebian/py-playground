@@ -31,6 +31,10 @@ class PrivatePropertyExperiment:
     def __init__(self, mensaje):
         self.__mi_mensaje = mensaje
 
+    @property
+    def __mi_mensaje(self):
+        return self.__mi_mensaje
+
     def __str__(self):
         return self.__mi_mensaje
 
