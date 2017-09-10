@@ -38,6 +38,9 @@ class PrivatePropertyExperiment:
 def main():
     ppe = PublicPropertyExample("Initial message")
     print(ppe.mi_mensaje)
+    print("-" * 12)
+    priv_ppe = PrivatePropertyExperiment("Initial Private Message")
+    print(priv_ppe)
 
 
 if __name__ == '__main__':
