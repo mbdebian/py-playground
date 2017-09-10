@@ -28,7 +28,11 @@ class PublicPropertyExample:
 
 
 class PrivatePropertyExperiment:
-    pass
+    def __init__(self, mensaje):
+        self.__mi_mensaje = mensaje
+
+    def __str__(self):
+        print(self.__mi_mensaje)
 
 
 def main():
