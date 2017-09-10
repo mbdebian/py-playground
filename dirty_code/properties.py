@@ -11,10 +11,16 @@
 Properties playground
 """
 
+import time
+
 
 class PublicPropertyExample:
     def __init__(self, mensaje):
         self.mi_mensaje = mensaje
+
+    @property
+    def mi_mensaje(self):
+        return "{} - {}".format(time.time(), self.__mi_mensaje)
 
 
 class PrivatePropertyExperiment:
