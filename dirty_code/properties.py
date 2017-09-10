@@ -13,7 +13,8 @@ Properties playground
 
 
 class PublicPropertyExample:
-    pass
+    def __init__(self, mensaje):
+        self.mi_mensaje = mensaje
 
 
 class PrivatePropertyExperiment:
