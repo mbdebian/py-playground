@@ -22,6 +22,10 @@ class PublicPropertyExample:
     def mi_mensaje(self):
         return "{} - {}".format(time.time(), self.__mi_mensaje)
 
+    @mi_mensaje.setter
+    def mi_mensaje(self, mensaje):
+        self.__mi_mensaje = mensaje
+
 
 class PrivatePropertyExperiment:
     pass
