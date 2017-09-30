@@ -17,3 +17,7 @@ class PlusTwo(MyBaseClass):
 class GoodWay(TimesFive, PlusTwo):
     def __init__(self, value):
         super().__init__(value)
+
+# Use case
+foo = GoodWay(5)
+print("It results in 5*(5+2) = 35 ---> {}".format(foo.value))
