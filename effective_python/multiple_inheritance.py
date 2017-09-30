@@ -13,3 +13,7 @@ class PlusTwo(MyBaseClass):
     def __init__(self, value):
         MyBaseClass.__init__(self, value)
         self.value += 2
+
+class GoodWay(TimesFive, PlusTwo):
+    def __init__(self, value):
+        super().__init__(value)
