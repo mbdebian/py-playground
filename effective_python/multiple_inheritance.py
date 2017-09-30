@@ -1,5 +1,7 @@
 # MRO sample
 
+from pprint import pprint
+
 class MyBaseClass(object):
     def __init__(self, value):
         self.value = value
@@ -21,3 +23,7 @@ class GoodWay(TimesFive, PlusTwo):
 # Use case
 foo = GoodWay(5)
 print("It results in 5*(5+2) = 35 ---> {}".format(foo.value))
+
+# Pretty print MRO
+print("---> MRO:")
+pprint(GoodWay.mro())
