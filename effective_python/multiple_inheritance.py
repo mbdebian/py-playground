@@ -25,5 +25,5 @@ foo = GoodWay(5)
 print("It results in 5*(5+2) = 35 ---> {}".format(foo.value))
 
 # Pretty print MRO
-print("---> MRO:")
+print("---> Python MRO:")
 pprint(GoodWay.mro())
