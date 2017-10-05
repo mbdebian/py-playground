@@ -13,7 +13,7 @@ Experimenting with parallelism in python
 
 import time
 import os
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 
 
 def greatest_common_divisor(pair):
@@ -38,3 +38,4 @@ pool = ThreadPoolExecutor(max_workers=os.cpu_count())
 results = list(pool.map(greatest_common_divisor, numbers))
 end = time.time()
 print("[---> It took {:.3} seconds <---]".format(end - start))
+# Using ProcessPoolExecutor
