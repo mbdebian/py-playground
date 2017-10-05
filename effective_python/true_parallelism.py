@@ -32,7 +32,7 @@ results = list(map(greatest_common_divisor, numbers))
 end = time.time()
 print("[---> It took {:.3} seconds <---]".format(end - start))
 # Now in parallel
-print("[{} PARALLEL Run {}]".format("-" * 20, "-" * 20))
+print("[{} PARALLEL Run (ThreadPoolExecutor) {}]".format("-" * 20, "-" * 20))
 start = time.time()
 pool = ThreadPoolExecutor(max_workers=os.cpu_count())
 results = list(pool.map(greatest_common_divisor, numbers))
