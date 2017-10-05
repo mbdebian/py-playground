@@ -23,7 +23,7 @@ def greatest_common_divisor(pair):
 
 
 # Running this function in serials
-print("{} Serial Run {}".format("-" * 20, "-" * 20))
+print("[{} Serial Run {}]".format("-" * 20, "-" * 20))
 numbers = [(1963309, 2265973), (2030677, 3814172), (1551645, 2229620), (2039045, 2020802)]
 start = time.time()
 results = list(map(greatest_common_divisor, numbers))
