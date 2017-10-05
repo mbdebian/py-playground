@@ -19,9 +19,9 @@ def my_coroutine():
 
 
 def minimize():
-    print("one")
+    print("minimize - one")
     current = yield
-    print("two")
+    print("minimize - two")
     while True:
         print("loop one")
         value = yield current
@@ -37,3 +37,9 @@ it.send('First')
 it.send('Second')
 
 # Second example
+it = minimize()
+next(it)
+print(it.send(10))
+print(it.send(4))
+print(it.send(22))
+print(it.send(-1))
