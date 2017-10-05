@@ -18,6 +18,18 @@ def my_coroutine():
         print('Received: ', received)
 
 
+def minimize():
+    print("one")
+    current = yield
+    print("two")
+    while True:
+        print("loop one")
+        value = yield current
+        print("loop two")
+        current = min(value, current)
+        print("loop three")
+
+
 it = my_coroutine()
 next(it)  # Prime the coroutine
 it.send('First')
