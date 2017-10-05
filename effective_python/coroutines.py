@@ -10,3 +10,9 @@
 """
 Coroutines example from the book
 """
+
+
+def my_coroutine():
+    while True:
+        received = yield
+        print('Received: ', received)
