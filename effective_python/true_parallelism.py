@@ -11,6 +11,8 @@
 Experimenting with parallelism in python
 """
 
+import time
+
 
 def greatest_common_divisor(pair):
     a, b = pair
@@ -18,3 +20,12 @@ def greatest_common_divisor(pair):
     for i in range(low, 0, -1):
         if a % i == 0 and b % i == 0:
             return i
+
+
+# Running this function in serials
+print("{} Serial Run {}".format("-" * 20, "-" * 20))
+numbers = [(1963309, 2265973), (2030677, 3814172), (1551645, 2229620), (2039045, 2020802)]
+start = time.time()
+results = list(map(greatest_common_divisor, numbers))
+end = time()
+print("[---> It took {:.3} seconds".format(end - start))
