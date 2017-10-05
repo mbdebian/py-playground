@@ -8,5 +8,5 @@
 # 
 
 """
-Document your module here
+Coroutines example from the book
 """
