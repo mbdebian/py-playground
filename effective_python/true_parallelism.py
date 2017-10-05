@@ -28,4 +28,4 @@ numbers = [(1963309, 2265973), (2030677, 3814172), (1551645, 2229620), (2039045,
 start = time.time()
 results = list(map(greatest_common_divisor, numbers))
 end = time.time()
-print("[---> It took {:.3} seconds".format(end - start))
+print("[---> It took {:.3} seconds <---]".format(end - start))
