@@ -30,12 +30,13 @@ def minimize():
         print("loop three")
 
 
+print("-" * 20)
 # First example
 it = my_coroutine()
 next(it)  # Prime the coroutine
 it.send('First')
 it.send('Second')
-
+print("-" * 20)
 # Second example
 it = minimize()
 next(it)
