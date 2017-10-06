@@ -34,4 +34,5 @@ def fibonacci(n):
 
 
 # Run
+print(fibonacci)
 fibonacci(3)
