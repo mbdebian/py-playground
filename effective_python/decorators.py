@@ -25,4 +25,6 @@ def fibonacci(n):
     :param n: n-th fibonacci number requested
     :return: the n-th Fibonacci number
     """
-    pass
+    if n in (0, 1):
+        return n
+    return fibonacci(n - 2) + fibonacci(n - 1)
