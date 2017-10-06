@@ -8,5 +8,5 @@
 # 
 
 """
-Document your module here
+Playground for decorators in Python
 """
