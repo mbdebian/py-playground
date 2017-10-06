@@ -17,7 +17,9 @@ def trace(func):
         result = func(*args, **kwargs)
         print("{}({},{}) -> {}".format(func.__name__, args, kwargs, result))
         return result
+
     return wrapper
+
 
 def fibonacci(n):
     """
