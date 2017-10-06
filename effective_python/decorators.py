@@ -21,6 +21,7 @@ def trace(func):
     return wrapper
 
 
+@trace
 def fibonacci(n):
     """
     Return the n-th Fibonacci number
