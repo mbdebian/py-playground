@@ -19,3 +19,10 @@ def trace(func):
         return result
     return wrapper
 
+def fibonacci(n):
+    """
+    Return the n-th Fibonacci number
+    :param n: n-th fibonacci number requested
+    :return: the n-th Fibonacci number
+    """
+    pass
