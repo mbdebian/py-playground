@@ -11,6 +11,7 @@
 Playground for decorators in Python
 """
 
+# @wraps decorator will take care of preserving the function metadata
 from functools import wraps
 
 
