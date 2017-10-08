@@ -35,3 +35,10 @@ def debug_logging(level):
 
 # Call
 my_function()
+
+# Call again using the context manager
+with debug_logging(logging.DEBUG):
+    print("---> Inside:")
+    my_function()
+print("---> After:")
+my_function()
