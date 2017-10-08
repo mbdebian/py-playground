@@ -15,3 +15,8 @@ import logging
 
 
 # Logging example
+def my_function():
+    logging.debug("Some debug data")
+    logging.error("Error log here")
+    logging.debug("More debug data")
+
