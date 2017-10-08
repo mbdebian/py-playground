@@ -10,3 +10,8 @@
 """
 Playing with contextlib and locks
 """
+
+import logging
+
+
+# Logging example
