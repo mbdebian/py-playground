@@ -20,3 +20,5 @@ def my_function():
     logging.error("Error log here")
     logging.debug("More debug data")
 
+# Call
+my_function()
