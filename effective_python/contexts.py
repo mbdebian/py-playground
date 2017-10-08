@@ -53,3 +53,8 @@ with debug_logging(logging.DEBUG):
     my_function()
 print("---> After:")
 my_function()
+
+# Using the new context manager
+with log_level(logging.DEBUG, 'my_log') as logger:
+    logger.debug("This is my message")
+    logging.debug("This will not print")
