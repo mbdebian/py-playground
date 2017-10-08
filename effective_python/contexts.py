@@ -33,6 +33,17 @@ def debug_logging(level):
         logger.setLevel(old_level)
 
 
+@contextmanager
+def log_level(level, name):
+    logger = logging.getLogger(name)
+    old_level = logger.getEffectiveLevel()
+    logger.setLevel(level)
+    try:
+        yield logger
+    finally:
+        logger.setLevel(old_level)
+
+
 # Call
 my_function()
 
