@@ -8,5 +8,5 @@
 # 
 
 """
-Document your module here
+Playing with contextlib and locks
 """
