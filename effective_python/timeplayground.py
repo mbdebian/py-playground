@@ -21,3 +21,6 @@ time_str = strftime(time_format, local_tuple)
 print(time_str)
 
 # From local time to UTC
+time_tuple = strptime(time_str, time_format)
+utc_now = mktime(time_tuple)
+print(utc_now)
