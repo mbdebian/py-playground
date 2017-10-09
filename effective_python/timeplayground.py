@@ -37,3 +37,5 @@ print(now_local)
 
 # Another experiment
 print("---> Translate localtime to other time zones")
+now = datetime.time()
+print("\tRaw datetime.time() ---> {}".format(now))
