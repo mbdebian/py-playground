@@ -37,6 +37,7 @@ now_local = now_utc.astimezone()
 print(now_local)
 
 # Example using pytz
+print("---> Approach using pytz")
 arrival_nyc = '2014-05-01 23:33:24'
 nyc_dt_naive = datetime.strptime(arrival_nyc, time_format)
 eastern = pytz.timezone('US/Eastern')
