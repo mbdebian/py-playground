@@ -45,6 +45,8 @@ nyc_dt = eastern.localize(nyc_dt_naive)
 utc_dt = pytz.utc.normalize(nyc_dt.astimezone(pytz.utc))
 print(utc_dt)
 
+# And... a lot more pain in the ass...
+
 # Another experiment
 print("---> Translate localtime to other time zones")
 now = time()
