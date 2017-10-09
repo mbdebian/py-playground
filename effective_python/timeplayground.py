@@ -11,7 +11,7 @@
 Playing with time and datetime
 """
 
-from time import localtime, strftime, mktime, strptime
+from time import localtime, strftime, mktime, strptime, time
 from datetime import datetime, timezone
 
 # From time to local time
@@ -37,5 +37,5 @@ print(now_local)
 
 # Another experiment
 print("---> Translate localtime to other time zones")
-now = datetime.time()
-print("\tRaw datetime.time() ---> {}".format(now))
+now = time()
+print("\tRaw time.time() ---> {}".format(now))
