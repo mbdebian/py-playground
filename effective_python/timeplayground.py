@@ -15,6 +15,7 @@ from time import localtime, strftime, mktime, strptime
 from datetime import datetime, timezone
 
 # From time to local time
+print("---> From time to local time")
 now = 1407694710
 local_tuple = localtime(now)
 time_format = '%Y-%m-%d %H:%M:%S'
