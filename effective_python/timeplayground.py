@@ -11,6 +11,7 @@
 Playing with time and datetime
 """
 
+import pytz
 from time import localtime, strftime, mktime, strptime, time
 from datetime import datetime, timezone
 
@@ -34,6 +35,14 @@ now = datetime(2014, 8, 10, 18, 18, 30)
 now_utc = now.replace(tzinfo=timezone.utc)
 now_local = now_utc.astimezone()
 print(now_local)
+
+# Example using pytz
+arrival_nyc = '2014-05-01 23:33:24'
+nyc_dt_naive = datetime.strptime(arrival_nyc, time_format)
+eastern = pytz.timezone('US/Eastern')
+nyc_dt = eastern.localize(nyc_dt_naive)
+utc_dt = pytz.utc.normalize(nyc_dt.astimezone(pytz.utc))
+print(utc_dt)
 
 # Another experiment
 print("---> Translate localtime to other time zones")
