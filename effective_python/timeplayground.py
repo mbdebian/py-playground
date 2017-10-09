@@ -12,6 +12,7 @@ Playing with time and datetime
 """
 
 from time import localtime, strftime, mktime, strptime
+from datetime import datetime, timezone
 
 # From time to local time
 now = 1407694710
@@ -24,3 +25,5 @@ print(time_str)
 time_tuple = strptime(time_str, time_format)
 utc_now = mktime(time_tuple)
 print(utc_now)
+
+# Now using datetime module
