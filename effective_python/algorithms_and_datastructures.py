@@ -10,3 +10,10 @@
 """
 Playground for algorithms and data structures
 """
+
+from collections import deque
+
+# Double-ended Queue
+fifo = deque()
+fifo.append(1)      # Producer
+x = fifo.popleft()  # Consumer
