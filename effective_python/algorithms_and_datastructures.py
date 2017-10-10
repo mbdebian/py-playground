@@ -11,6 +11,7 @@
 Playground for algorithms and data structures
 """
 
+from bisect import bisect_left
 from collections import deque, defaultdict
 from heapq import heappush, heappop, nsmallest
 
@@ -36,4 +37,10 @@ heappush(a, 7)
 heappush(a, 4)
 assert a[0] == nsmallest(1, a)[0] == 3
 print(heappop(a), heappop(a), heappop(a), heappop(a))
+print("[{}]".format("-" * 20))
+
+# Example of bisect
+print("[--- Bisect example ---]")
+x = list(range(10**6))
+i = x.index(991234)
 print("[{}]".format("-" * 20))
