@@ -15,9 +15,11 @@ from collections import deque, defaultdict
 from heapq import heappush, heappop, nsmallest
 
 # Double-ended Queue
+print("[--- FIFO example ---]")
 fifo = deque()
 fifo.append(1)      # Producer
 x = fifo.popleft()  # Consumer
+print("[{}]".format("-" * 20))
 
 # Example of default dictionary
 stats = defaultdict(int)
