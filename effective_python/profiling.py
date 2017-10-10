@@ -39,3 +39,8 @@ test = lambda: insertion_sort(data)
 profiler = Profile()
 profiler.runcall(test)
 
+# Get the stats from the profiler
+stats = Stats(profiler)
+stats.strip_dirs()
+stats.sort_stats('cumulative')
+stats.print_stats()
