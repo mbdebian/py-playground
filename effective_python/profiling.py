@@ -11,8 +11,10 @@
 This module is for playing with profiling applications in python
 """
 
+from pstats import Stats
 from random import randint
 from cProfile import Profile
+
 
 def insertion_sort(data):
     result = []
@@ -36,3 +38,4 @@ test = lambda: insertion_sort(data)
 # Run the call with a profiler
 profiler = Profile()
 profiler.runcall(test)
+
