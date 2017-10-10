@@ -14,6 +14,7 @@ This module is for playing with profiling applications in python
 from pstats import Stats
 from random import randint
 from cProfile import Profile
+from bisect import bisect_left
 
 
 def insertion_sort(data):
@@ -23,12 +24,15 @@ def insertion_sort(data):
     return result
 
 
+# def insert_value(array, value):
+#     for i, existing in enumerate(array):
+#         if existing > value:
+#             array.insert(i, value)
+#             return
+#     array.append(value)
 def insert_value(array, value):
-    for i, existing in enumerate(array):
-        if existing > value:
-            array.insert(i, value)
-            return
-    array.append(value)
+    i = bisect_left(array, value)
+    array.insert(i, value)
 
 
 max_size = 10 ** 4
