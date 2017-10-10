@@ -12,6 +12,7 @@ Playground for algorithms and data structures
 """
 
 from collections import deque, defaultdict
+from heapq import heappush, heappop, nsmallest
 
 # Double-ended Queue
 fifo = deque()
@@ -21,3 +22,11 @@ x = fifo.popleft()  # Consumer
 # Example of default dictionary
 stats = defaultdict(int)
 stats['my_counter'] += 1
+
+# Example of Heap Queue
+a = []
+heappush(a, 5)
+heappush(a, 3)
+heappush(a, 7)
+heappush(a, 4)
+print(heappop(a), heappop(a), heappop(a), heappop(a))
