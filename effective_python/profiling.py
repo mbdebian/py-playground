@@ -18,3 +18,10 @@ def insertion_sort(data):
         insert_value(result, value)
     return result
 
+
+def insert_value(array, value):
+    for i, existing in enumerate(array):
+        if existing > value:
+            array.insert(i, value)
+            return
+    array.append(value)
