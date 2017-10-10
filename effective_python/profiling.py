@@ -34,3 +34,5 @@ data = [randint(0, max_size) for _ in range(max_size)]
 test = lambda: insertion_sort(data)
 
 # Run the call with a profiler
+profiler = Profile()
+profiler.runcall(test)
