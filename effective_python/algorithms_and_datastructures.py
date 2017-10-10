@@ -22,13 +22,17 @@ x = fifo.popleft()  # Consumer
 print("[{}]".format("-" * 20))
 
 # Example of default dictionary
+print("[--- defaultdict example ---]")
 stats = defaultdict(int)
 stats['my_counter'] += 1
+print("[{}]".format("-" * 20))
 
 # Example of Heap Queue
+print("[--- Heap Queue example ---]")
 a = []
 heappush(a, 5)
 heappush(a, 3)
 heappush(a, 7)
 heappush(a, 4)
 print(heappop(a), heappop(a), heappop(a), heappop(a))
+print("[{}]".format("-" * 20))
