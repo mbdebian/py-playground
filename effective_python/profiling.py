@@ -8,5 +8,5 @@
 # 
 
 """
-Document your module here
+This module is for playing with profiling applications in python
 """
