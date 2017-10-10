@@ -12,7 +12,7 @@ This module is for playing with profiling applications in python
 """
 
 from random import randint
-
+from cProfile import Profile
 
 def insertion_sort(data):
     result = []
@@ -32,3 +32,5 @@ def insert_value(array, value):
 max_size = 10 ** 4
 data = [randint(0, max_size) for _ in range(max_size)]
 test = lambda: insertion_sort(data)
+
+# Run the call with a profiler
