@@ -11,9 +11,13 @@
 Playground for algorithms and data structures
 """
 
-from collections import deque
+from collections import deque, defaultdict
 
 # Double-ended Queue
 fifo = deque()
 fifo.append(1)      # Producer
 x = fifo.popleft()  # Consumer
+
+# Example of default dictionary
+stats = defaultdict(int)
+stats['my_counter'] += 1
