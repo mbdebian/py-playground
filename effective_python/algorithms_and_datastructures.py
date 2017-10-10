@@ -34,5 +34,6 @@ heappush(a, 5)
 heappush(a, 3)
 heappush(a, 7)
 heappush(a, 4)
+assert a[0] == nsmallest(1, a)[0] == 3
 print(heappop(a), heappop(a), heappop(a), heappop(a))
 print("[{}]".format("-" * 20))
