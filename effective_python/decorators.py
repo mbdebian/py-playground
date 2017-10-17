@@ -39,6 +39,7 @@ def timing(func):
 
 
 @trace
+@timing
 def fibonacci(n):
     """
     Return the n-th Fibonacci number
