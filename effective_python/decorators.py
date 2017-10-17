@@ -11,6 +11,7 @@
 Playground for decorators in Python
 """
 
+import time
 # @wraps decorator will take care of preserving the function metadata
 from functools import wraps
 
@@ -20,6 +21,18 @@ def trace(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         print("{}({},{}) -> {}".format(func.__name__, args, kwargs, result))
+        return result
+
+    return wrapper
+
+
+def timing(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print("[Timing] Call '{}', {}s".format(func.__name__, (end - start)))
         return result
 
     return wrapper
